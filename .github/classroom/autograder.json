@@ -1,0 +1,14 @@
+{
+    "tests": [
+      {
+        "name": "NAME OF TEST",
+        "setup": "npm install",
+        "run": "npm test tests/isItPrime.test.js",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 10,
+        "points": 1
+      }
+    ]
+  }
