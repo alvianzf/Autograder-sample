@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: education/autograding@v2
+      - uses: education/autograding@v1
         id: autograder
         continue-on-error: true
       - name: Get current date
@@ -19,7 +19,7 @@ jobs:
         run: echo "::set-output name=time::$(date +'%H:%M:%S')"
 
       - id: "append_points"
-        uses: jroehl/gsheet.action
+        uses: jroehl/gsheet.action@v1.1.0
         with:
           spreadsheetId: 1HFims7REJXElNhGxVP8ta6KQr8mUFliA_ug57Ob9D48
           commands: |
