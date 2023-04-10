@@ -1,4 +1,5 @@
 name: Autograder
+
 on:
   push:
     branches: [main]
@@ -6,10 +7,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    needs: checkout
-    outputs:
-      grades: ${{ steps.grades.outputs.grades }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -19,16 +19,10 @@ jobs:
       - name: Run tests
         id: grades
         run: npm test
-
-  append-to-sheet:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
       - name: Append grades to Google Sheets
         uses: google-github-actions/sheets-append@v1
         with:
-          sheet-id: ${{ secrets.SHEET_ID }}
-          range: 'Sheet1!A:B'
-          values: |
-            ${{ steps.test.outputs.grades }}
-          credentials: ${{ secrets.GOOGLE_API_CREDENTIALS }}
+          sheet-id: ${{ secrets.GOOGLE_SHEET_ID }}
+          range: Sheet1!A:B
+          values: '${{ steps.test.outputs.grades }}'
+          service-account-key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
