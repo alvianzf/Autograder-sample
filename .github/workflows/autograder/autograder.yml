@@ -1,0 +1,34 @@
+name: Autograder
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    needs: checkout
+    outputs:
+      grades: ${{ steps.grades.outputs.grades }}
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        id: grades
+        run: npm test
+
+  append-to-sheet:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Append grades to Google Sheets
+        uses: google-github-actions/sheets-append@v1
+        with:
+          sheet-id: ${{ secrets.SHEET_ID }}
+          range: 'Sheet1!A:B'
+          values: |
+            ${{ steps.test.outputs.grades }}
+          credentials: ${{ secrets.GOOGLE_API_CREDENTIALS }}

@@ -1,0 +1,14 @@
+{
+    "name": "autograder",
+    "version": "1.0.0",
+    "description": "Autograder for HTML code",
+    "scripts": {
+      "test": "jest --colors --verbose"
+    },
+    "dependencies": {
+      "jest": "^27.4.7",
+      "jsdom": "^17.0.2"
+    },
+    "devDependencies": {}
+  }
+  
