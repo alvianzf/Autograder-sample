@@ -7,8 +7,8 @@ jobs:
     name: Autograding
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout
-      - uses: education/autograding
+      - uses: actions/checkout@v2
+      - uses: education/autograding@v2
         id: autograder
         continue-on-error: true
       - name: Get current date
