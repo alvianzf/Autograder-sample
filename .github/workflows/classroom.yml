@@ -21,7 +21,7 @@ jobs:
       - id: "append_points"
         uses: jroehl/gsheet.action@v1.1.0
         with:
-          spreadsheetId: 1HFims7REJXElNhGxVP8ta6KQr8mUFliA_ug57Ob9D48
+          spreadsheetId: aZY76NiPLBlMib0rsOr-h4ikaMVFQ5jaV2lUA92NTc8
           commands: |
             [
               { 
