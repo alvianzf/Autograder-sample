@@ -1,9 +1,9 @@
 {
   "tests": [
     {
-      "name": "is it prime",
+      "name": "Area",
       "setup": "npm install",
-      "run": "npm test tests/isItPrime.test.js",
+      "run": "npm test tests/area.test.js",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -11,29 +11,9 @@
       "points": 1
     },
     {
-      "name": "What Time is It",
+      "name": "Circumference",
       "setup": "npm install",
-      "run": "npm test tests/whatTimeIsIt.test.js",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 1
-    },
-    {
-      "name": "When Was it Posted",
-      "setup": "npm install",
-      "run": "npm test tests/whenWasItPosted.test.js",
-      "input": "",
-      "output": "",
-      "comparison": "included",
-      "timeout": 10,
-      "points": 1
-    },
-    {
-      "name": "Who is It",
-      "setup": "npm install",
-      "run": "npm test tests/whoIsIt.test.js",
+      "run": "npm test tests/circumference.test.js",
       "input": "",
       "output": "",
       "comparison": "included",
